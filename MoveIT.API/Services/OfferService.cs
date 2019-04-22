@@ -1,5 +1,6 @@
 using MoveIT.API.Interfaces;
 using MoveIT.API.Models;
+using MoveIT.API.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace MoveIT.API.Services
 
         public void CalculateOffer(Offer offer)
         {
+            offer.Status = OfferStatus.UNVERIFIED;
             double price;
 
             var distancePrice = CalculateDistancePrice(offer.Distance);
