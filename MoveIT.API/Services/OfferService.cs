@@ -63,12 +63,12 @@ namespace MoveIT.API.Services
                 noOfCars = 1;
             }
 
-            else if (totalArea > 50 && totalArea < 100)
+            else if (totalArea >= 50 && totalArea < 100)
             {
                 noOfCars = 2;
             }
 
-            else if (totalArea > 100 && totalArea < 150)
+            else if (totalArea >= 100 && totalArea < 150)
             {
                 noOfCars = 3;
             }
