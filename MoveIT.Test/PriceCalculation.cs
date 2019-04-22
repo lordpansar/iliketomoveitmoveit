@@ -34,5 +34,17 @@ namespace MoveIT.Test
             var price = offerService.CalculateDistancePrice(distance);
             Assert.Equal(0, price);
         }
+
+        [Theory]
+        [InlineData(49, 0, 1)]
+        [InlineData(10, 25, 2)]
+        [InlineData(50, 0, 2)]
+        [InlineData(100, 0, 3)]
+        [InlineData(150, 0, 4)]
+        public void AssertThatNumberOfCarsIsCalculatedCorrectly(double livingArea, double auxArea, int expected)
+        {
+            var actual = offerService.CalculateNumberOfCars(livingArea, auxArea);
+            Assert.Equal(expected, actual);
+        }
     }
 }
