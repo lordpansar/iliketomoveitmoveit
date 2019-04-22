@@ -3,8 +3,6 @@ using MoveIT.API.Models;
 using MoveIT.API.Models.Enums;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MoveIT.API.Services
 {
@@ -18,21 +16,14 @@ namespace MoveIT.API.Services
         public void CalculateOffer(Offer offer)
         {
             offer.Status = OfferStatus.UNVERIFIED;
-            double price;
-
+            
             var distancePrice = CalculateDistancePrice(offer.Distance);
             var cars = CalculateNumberOfCars(offer.LivingArea, offer.AuxArea);
+            var pianoCost = CalculatePianoCost(offer.HasPiano);
+            
+            offer.PriceIncludingVAT = (distancePrice * cars) + pianoCost;
 
-            if(!offer.IsPiano)
-            {
-                price = (distancePrice * cars);
-            }
-            else
-            {
-                price = distancePrice * cars + 5000;
-            }
-
-            offer.PriceIncludingVAT = price;
+            return offer;
         }
 
         public double CalculateDistancePrice(double distance)
@@ -89,6 +80,18 @@ namespace MoveIT.API.Services
             }
 
             return noOfCars;
+        }
+
+        public int CalculatePianoCost(bool hasPiano)
+        {
+            if (!hasPiano)
+            {
+                return 0;
+            }
+            else
+            {
+                return 5000;
+            }
         }
 
         public Offer GetOfferById(int id)
