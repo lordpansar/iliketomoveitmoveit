@@ -19,6 +19,8 @@ namespace MoveIT.API.Services
             double price;
 
             var distancePrice = CalculateDistancePrice(offer.Distance);
+            var cars = CalculateNumberOfCars(offer.LivingArea, offer.AuxArea);
+
         }
 
         public double CalculateDistancePrice(double distance)
@@ -42,6 +44,39 @@ namespace MoveIT.API.Services
             {
                 return 10000 + (distance * 7);
             }
+        }
+
+        public int CalculateNumberOfCars(double livingArea, double auxArea)
+        {
+            var totalArea = livingArea + (auxArea * 2);
+            int noOfCars = 0;
+
+            if(totalArea <= 0)
+            {
+                return noOfCars;
+            }
+
+            else if (totalArea > 0 && totalArea < 50)
+            {
+                noOfCars = 1;
+            }
+
+            else if (totalArea > 50 && totalArea < 100)
+            {
+                noOfCars = 2;
+            }
+
+            else if (totalArea > 100 && totalArea < 150)
+            {
+                noOfCars = 3;
+            }
+
+            else
+            {
+                noOfCars = 4;
+            }
+
+            return noOfCars;
         }
 
         public Offer GetOfferById(int id)

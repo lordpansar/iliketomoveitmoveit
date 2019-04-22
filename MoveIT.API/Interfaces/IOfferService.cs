@@ -12,5 +12,7 @@ namespace MoveIT.API.Interfaces
         void CalculateOffer(Offer offer);
 
         double CalculateDistancePrice(double distance);
+
+        int CalculateNumberOfCars(double livingArea, double auxArea);
     }
 }
