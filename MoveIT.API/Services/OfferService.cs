@@ -23,6 +23,16 @@ namespace MoveIT.API.Services
             var distancePrice = CalculateDistancePrice(offer.Distance);
             var cars = CalculateNumberOfCars(offer.LivingArea, offer.AuxArea);
 
+            if(!offer.IsPiano)
+            {
+                price = (distancePrice * cars);
+            }
+            else
+            {
+                price = distancePrice * cars + 5000;
+            }
+
+            offer.PriceIncludingVAT = price;
         }
 
         public double CalculateDistancePrice(double distance)
