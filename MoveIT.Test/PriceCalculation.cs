@@ -46,5 +46,24 @@ namespace MoveIT.Test
             var actual = offerService.CalculateNumberOfCars(livingArea, auxArea);
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void AssertThatNegativeCarsIsCaught()
+        {
+            var livingArea = -1;
+            var auxArea = 0;
+
+            var cars = offerService.CalculateNumberOfCars(livingArea, auxArea);
+            Assert.Equal(0, cars);
+        }
+
+        [Theory]
+        [InlineData(true, 5000)]
+        [InlineData(false, 0)]
+        public void AssertThatPianoCostIsCalculatedCorrectly(bool offerHasPiano, int expected)
+        {
+            var actual = offerService.CalculatePianoCost(offerHasPiano);
+            Assert.Equal(expected, actual);
+        }
     }
 }
