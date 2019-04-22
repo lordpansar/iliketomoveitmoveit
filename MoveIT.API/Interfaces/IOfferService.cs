@@ -1,12 +1,14 @@
-﻿using System;
+using MoveIT.API.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MoveIT.API.Interfaces
 {
     public interface IOfferService
     {
+        List<Offer> GetOffers();
+
         Offer GetOfferById(int id);
+
+        void CalculateOffer(Offer offer);
     }
 }
