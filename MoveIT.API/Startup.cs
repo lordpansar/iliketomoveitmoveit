@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using MoveIT.API.Interfaces;
+using MoveIT.API.Services;
 
 namespace MoveIT.API
 {
@@ -25,6 +27,10 @@ namespace MoveIT.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region Register Services
+            services.AddTransient<IOfferService, OfferService>();
+            #endregion
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

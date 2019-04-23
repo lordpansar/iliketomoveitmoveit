@@ -3,13 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MoveIT.API.Interfaces;
+using MoveIT.API.Models;
 
 namespace MoveIT.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class OfferController : ControllerBase
     {
+        private readonly IOfferService _offerservice;
+
+        public OfferController(IOfferService offerService)
+        {
+            _offerservice = offerService;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -26,8 +35,9 @@ namespace MoveIT.API.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Offer([FromBody] Offer offer)
         {
+
         }
 
         // PUT api/values/5
