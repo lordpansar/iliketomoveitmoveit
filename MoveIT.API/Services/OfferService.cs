@@ -13,7 +13,7 @@ namespace MoveIT.API.Services
             
         }
 
-        public void CalculateOffer(Offer offer)
+        public Offer CalculateOffer(Offer offer)
         {
             offer.Status = OfferStatus.UNVERIFIED;
             

@@ -1,4 +1,4 @@
-using MoveIT.API.Models;
+﻿using MoveIT.API.Models;
 using System.Collections.Generic;
 
 namespace MoveIT.API.Interfaces
@@ -9,7 +9,7 @@ namespace MoveIT.API.Interfaces
 
         Offer GetOfferById(int id);
 
-        void CalculateOffer(Offer offer);
+        Offer CalculateOffer(Offer offer);
 
         double CalculateDistancePrice(double distance);
 
