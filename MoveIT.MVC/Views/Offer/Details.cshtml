@@ -1,0 +1,41 @@
+﻿@model OfferViewModel
+@{
+    ViewData["Title"] = "Detaljvy";
+}
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <p>Kontaktinformation</p>
+        <p>Namn: </p><p>@Model.Client.Name</p>
+        <p>E-post: </p><p>@Model.Client.Email</p>
+        <p>Telefon: </p><p>@Model.Client.Phone</p>
+    </div>
+</div>
+<div class="row">
+    <p>Adresser</p>
+    <div class="col-md-6">
+        <p>Gatuadress från: </p><p>@Model.Offer.FromAddress.Street</p>
+        <p>Stad från: </p><p>@Model.Offer.FromAddress.City</p>
+    </div>
+    <div class="col-md-6">
+        <p>Gatuadress till: </p><p>@Model.Offer.ToAddress.Street</p>
+        <p>Stad från: </p><p>@Model.Offer.ToAddress.City</p>
+    </div>
+</div>
+<div class="row">
+    <p>Övrig information: </p>
+    <div class="col-md-12">
+        <p>Yta exkl. vind/källare: </p><p>@Model.Offer.LivingArea</p>
+        <p>Yta vind/källare: </p><p>@Model.Offer.AuxArea</p>
+        <p>Distans mellan adresser: </p><p>@Model.Offer.Distance</p>
+        <p>Pianoflytt á 5000SEK: </p> <p>@Model.Offer.HasPiano</p>
+    </div>
+</div>
+<div class="row">
+    <p>Att betala: </p>
+    <div class="col-md-12">
+        <p>Pris: </p><p>@Model.Offer.PriceIncludingVAT</p>
+        <p>Varav moms :</p><p>@(Model.Offer.PriceIncludingVAT * 0.2)</p>
+    </div>
+</div>
