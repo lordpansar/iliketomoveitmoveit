@@ -3,39 +3,60 @@
     ViewData["Title"] = "Detaljvy";
 }
 <h2>@ViewData["Title"]</h2>
+@{
+    if (Model.Offer.Id > 0)
+    {
+        @:<p>Ordernummer: @Model.Offer.Id</p>
+    }
+}
+<div class="row">
+    <div class="col-md-6">
 
-<div class="row">
-    <div class="col-md-12">
-        <p>Kontaktinformation</p>
-        <p>Namn: </p><p>@Model.Client.Name</p>
-        <p>E-post: </p><p>@Model.Client.Email</p>
-        <p>Telefon: </p><p>@Model.Client.Phone</p>
-    </div>
-</div>
-<div class="row">
-    <p>Adresser</p>
-    <div class="col-md-6">
-        <p>Gatuadress från: </p><p>@Model.Offer.FromAddress.Street</p>
-        <p>Stad från: </p><p>@Model.Offer.FromAddress.City</p>
+        <h4>Kontaktuppgifter</h4>
+        <p>Namn: @Model.Client.Name</p>
+        <p>E-post: @Model.Client.Email</p>
+        <p>Telefon: @Model.Client.Phone</p>
     </div>
     <div class="col-md-6">
-        <p>Gatuadress till: </p><p>@Model.Offer.ToAddress.Street</p>
-        <p>Stad från: </p><p>@Model.Offer.ToAddress.City</p>
+        <h4>Adresser</h4>
+        <p>Från adress: @Model.Offer.FromAddress.Street, @Model.Offer.FromAddress.City</p>
+        <p>Till adress: @Model.Offer.ToAddress.Street, @Model.Offer.ToAddress.City</p>
+        <p>Distans mellan adresser: @Model.Offer.Distance km</p>
     </div>
 </div>
 <div class="row">
-    <p>Övrig information: </p>
-    <div class="col-md-12">
-        <p>Yta exkl. vind/källare: </p><p>@Model.Offer.LivingArea</p>
-        <p>Yta vind/källare: </p><p>@Model.Offer.AuxArea</p>
-        <p>Distans mellan adresser: </p><p>@Model.Offer.Distance</p>
-        <p>Pianoflytt á 5000SEK: </p> <p>@Model.Offer.HasPiano</p>
+    <div class="col-md-6">
+        <h4>Övrig information </h4>
+        <p>Yta exkl. vind/källare: @Model.Offer.LivingArea m2</p>
+        <p>Yta vind/källare: @Model.Offer.AuxArea m2</p>
+        @{
+            if (Model.Offer.HasPiano)
+            {
+                <p>Pianoflytt: Ja</p>
+            }
+            else
+            {
+                <p>Pianoflytt: Nej</p>
+            }
+        }
+        <p>Packhjälp: Nej</p>
+    </div>
+    <div class="col-md-6">
+        <h4>Att betala: </h4>
+        <p>Distanskostnad/bil: @Model.Offer.Price.DistanceCost SEK</p>
+        <p>Antal bilar: @Model.Offer.Price.NoOfCars</p>
+        @{
+            if (Model.Offer.HasPiano)
+            {
+                <p>Pianoflytt: 5000 SEK</p>
+            }
+        }
+        <h3>@Model.Offer.Price.TotalCost SEK</h3>
+        <p>Varav moms : @(Model.Offer.Price.TotalCost * 0.2) SEK</p>
     </div>
 </div>
 <div class="row">
-    <p>Att betala: </p>
     <div class="col-md-12">
-        <p>Pris: </p><p>@Model.Offer.PriceIncludingVAT</p>
-        <p>Varav moms :</p><p>@(Model.Offer.PriceIncludingVAT * 0.2)</p>
+        <p>Frågor? Kontakta oss på <a href="mailto:flytt@moveit.se?subject=Ang offert">flytt@moveit.se</a></p>
     </div>
 </div>
