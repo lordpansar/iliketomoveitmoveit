@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MoveIT.MVC.Interfaces;
+using MoveIT.MVC.Repositories;
 using MoveIT.MVC.Services;
 
 namespace MoveIT.MVC
@@ -28,6 +29,7 @@ namespace MoveIT.MVC
         {
             #region Register Services
             services.AddTransient<IOfferService, OfferService>();
+            services.AddTransient<IOfferRepository, OfferRepository>();
             #endregion
 
             services.Configure<CookiePolicyOptions>(options =>
