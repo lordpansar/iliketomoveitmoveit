@@ -1,11 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using MoveIT.MVC.Interfaces;
 using MoveIT.MVC.Models;
 
 namespace MoveIT.MVC.Controllers
 {
-    //[Route("api/[controller]")]
-    //[ApiController]
     public class OfferController : Controller
     {
         private readonly IOfferService _offerservice;
@@ -22,16 +20,18 @@ namespace MoveIT.MVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(OfferViewModel model)
+        public IActionResult Index(OfferViewModel viewModel)
         {
-            _offerservice.CalculateOffer(model);
-            return View(model);
+            var model = _offerservice.CalculateOffer(viewModel);
+            return View("Details", model);
         }
 
-        [HttpPost]
-        public void Offer(OfferViewModel offer)
+        [HttpGet]
+        [Route("details/{id}")]
+        public IActionResult Details(int id)
         {
-            _offerservice.CalculateOffer(offer);
+            var model = _offerservice.GetOfferById(id);
+            return View(model);
         }
 
         // PUT api/values/5
