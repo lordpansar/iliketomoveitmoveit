@@ -1,6 +1,6 @@
-﻿using MoveIT.API.Models.Enums;
+﻿using MoveIT.Models.Models.Enums;
 
-namespace MoveIT.API.Models
+namespace MoveIT.Models.Models
 {
     public class Offer
     {
@@ -10,8 +10,8 @@ namespace MoveIT.API.Models
         public double Distance { get; set; }
         public double LivingArea { get; set; }
         public double AuxArea { get; set; }
-        public bool IsPiano { get; set; }
-        public double PriceExcludingVAT { get; set; }
+        public bool HasPiano { get; set; }
+        public double PriceIncludingVAT { get; set; }
         public OfferStatus Status { get; set; }
     }
 }

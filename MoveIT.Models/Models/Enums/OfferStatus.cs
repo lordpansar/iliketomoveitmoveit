@@ -1,4 +1,4 @@
-﻿namespace MoveIT.API.Models.Enums
+﻿namespace MoveIT.Models.Models.Enums
 {
     public enum OfferStatus
     {
