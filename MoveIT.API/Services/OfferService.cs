@@ -1,6 +1,6 @@
 using MoveIT.API.Interfaces;
-using MoveIT.API.Models;
-using MoveIT.API.Models.Enums;
+using MoveIT.Models.Models;
+using MoveIT.Models.Models.Enums;
 using System;
 using System.Collections.Generic;
 
