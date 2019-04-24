@@ -1,4 +1,4 @@
-﻿using MoveIT.API.Models;
+﻿using MoveIT.Models.Models;
 using System.Collections.Generic;
 
 namespace MoveIT.API.Interfaces

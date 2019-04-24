@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MoveIT.API.Interfaces;
-using MoveIT.API.Models;
+using MoveIT.Models.Models;
 
 namespace MoveIT.API.Controllers
 {
@@ -37,7 +37,7 @@ namespace MoveIT.API.Controllers
         [HttpPost]
         public void Offer([FromBody] Offer offer)
         {
-
+            _offerservice.CalculateOffer(offer);
         }
 
         // PUT api/values/5
