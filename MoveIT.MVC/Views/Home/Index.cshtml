@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <p>Ipsasdölkjasdlfkjasldkfjalsködjflkasjdfldfjglksjdaöfkjasdlkfjasdlökfjaslökdjlökaskjdfölkasjdflökkjaslökdfjaslökjdflökaskjdflökasjdflöksjdflk</p>
+    </div>
+</div>
+
+    <div class="col-md-6">
+    @*<i class="fas fa-truck"></i>*@
+    @*<div class="container-fluid">
+        <div id="map">
+            <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin=Rekordv%C3%A4gen%206%2C%20Gustavsberg%2C%20Sverige&destination=Dovregatan%202%2C%20Kista%2C%20Sverige&key=AIzaSyDLzfNEt8wsBTkoGIyY-goV4bCV7vQlcA0" allowfullscreen></iframe>
+        </div>
+    </div>*@
+</div>
+
+@*@section scripts {
+        <script>
+            //localhost: 44338
+            $(document).ready(function () {
+
+                $("#post2").click(function () {
+                    console.log("Hej!");
+                    alert("Hej!");
+                });
+
+            });
+
+            $(document).ready(function () {
+                $("#post").click(function () {
+                    var offer = new Object();
+                    offer.name = $('#name').val();
+                    offer.email = $('#email').val();
+                    offer.fromAddress = $('#from-address').val();
+                    offer.toAddress = $('#to-address').val();
+                    offer.distance = $('#distance').val();
+                    offer.livingArea = $('#livingArea').val();
+                    offer.auxArea = $('#auxArea').val();
+                    offer.hasPiano = $('#hasPiano').is(':checked');
+
+                    $.ajax({
+                        url: 'https://localhost:44338/api/offer',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: offer,
+                        success: function (data, textStatus, xhr) {
+                            console.log(data);
+                        },
+                        error: function (xhr, textStatus, errorThrown) {
+                            console.log('Error in Operation');
+                        }
+                    });
+                });
+            });
+        </script>
+    }*@
+

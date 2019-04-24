@@ -1,0 +1,71 @@
+﻿@model MoveIT.MVC.Models.OfferViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <p>Ipsasdölkjasdlfkjasldkfjalsködjflkasjdfldfjglksjdaöfkjasdlkfjasdlökfjaslökdjlökaskjdfölkasjdflökkjaslökdfjaslökjdflökaskjdflökasjdflöksjdflk</p>
+    </div>
+</div>
+<div class="row">
+    @*sp-route-returnurl="@ViewData["ReturnUrl"]"*@
+    <div class="col-md-6">
+        <form asp-controller="Offer" asp-action="Index" method="post" class="form-horizontal" role="form">
+            <div class="form-group">
+                <label asp-for="Client.Name">Namn:</label>
+                <input asp-for="Client.Name" type="text" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+                <label asp-for="Client.Email">E-post:</label>
+                <input asp-for="Client.Email" type="email" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+                <label asp-for="Client.Phone">Telefon:</label>
+                <input asp-for="Client.Phone" type="text" class="form-control" id="phone">
+            </div>
+            <div class="form-group">
+                <label asp-for="Offer.FromAddress.Street">Från adress:</label>
+                <input asp-for="Offer.FromAddress.Street" type="text" class="form-control" id="from-address">
+            </div>
+            <div class="form-group">
+                <label asp-for="Offer.FromAddress.City">Från stad:</label>
+                <input asp-for="Offer.FromAddress.City" type="text" class="form-control" id="from-address">
+            </div>
+            <div class="form-group">
+                <label asp-for="Offer.ToAddress.Street">Till adress:</label>
+                <input asp-for="Offer.ToAddress.Street" type="text" class="form-control" id="to-address">
+            </div>
+            <div class="form-group">
+                <label asp-for="Offer.ToAddress.City">Från stad:</label>
+                <input asp-for="Offer.ToAddress.City" type="text" class="form-control" id="from-address">
+            </div>
+            <div class="form-group">
+                <label asp-for="Offer.Distance">Avstånd i kilometer:</label>
+                <input asp-for="Offer.Distance" type="text" class="form-control" id="distance">
+            </div>
+            <div class="form-group">
+                <label asp-for="Offer.LivingArea">Yta exkl. källare/vind:</label>
+                <input asp-for="Offer.LivingArea" type="text" class="form-control" id="livingArea">
+            </div>
+            <div class="form-group">
+                <label asp-for="Offer.AuxArea">Yta källare/vind:</label>
+                <input asp-for="Offer.AuxArea" type="text" class="form-control" id="auxArea">
+            </div>
+            <div class="checkbox">
+                    <label asp-for="Offer.HasPiano">
+                        <input asp-for="Offer.HasPiano" type="checkbox" id="hasPiano"> Piano
+                    </label>
+            </div>
+            <button type="submit" value="Save" id="post" class="btn btn-success">Skicka</button>
+        </form>
+    </div>
+    <div class="col-md-6">
+        @*<i class="fas fa-truck"></i>*@
+        @*<div class="container-fluid">
+                <div id="map">
+                    <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin=Rekordv%C3%A4gen%206%2C%20Gustavsberg%2C%20Sverige&destination=Dovregatan%202%2C%20Kista%2C%20Sverige&key=AIzaSyDLzfNEt8wsBTkoGIyY-goV4bCV7vQlcA0" allowfullscreen></iframe>
+                </div>
+            </div>*@
+    </div>
+</div>
