@@ -17,6 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Views\Offer\Verify.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Offer\Details.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
