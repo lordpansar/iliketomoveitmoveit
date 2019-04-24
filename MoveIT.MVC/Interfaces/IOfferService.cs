@@ -1,4 +1,4 @@
-﻿using MoveIT.Models.Models;
+using MoveIT.Models.Models;
 using MoveIT.MVC.Models;
 using System.Collections.Generic;
 
@@ -8,7 +8,7 @@ namespace MoveIT.MVC.Interfaces
     {
         List<Offer> GetOffers();
 
-        Offer GetOfferById(int id);
+        OfferViewModel GetOfferById(int id);
 
         OfferViewModel CalculateOffer(OfferViewModel offer);
 

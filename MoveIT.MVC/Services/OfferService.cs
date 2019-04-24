@@ -9,20 +9,22 @@ namespace MoveIT.MVC.Services
 {
     public class OfferService : IOfferService
     {
-        public OfferService()
+        private readonly IOfferRepository _offerRepository;
+
+        public OfferService(IOfferRepository offerRepository)
         {
-            
+            _offerRepository = offerRepository;
         }
 
-        public OfferViewModel CalculateOffer(OfferViewModel offer)
+        public OfferViewModel CalculateOffer(OfferViewModel model)
         {
-            var distancePrice = CalculateDistancePrice(offer.Offer.Distance);
-            var cars = CalculateNumberOfCars(offer.Offer.LivingArea, offer.Offer.AuxArea);
-            var pianoCost = CalculatePianoCost(offer.Offer.HasPiano);
-            
-            offer.Offer.PriceIncludingVAT = (distancePrice * cars) + pianoCost;
+            model.Offer.Price = new Price();
+            model.Offer.Price.DistanceCost = CalculateDistancePrice(model.Offer.Distance);
+            model.Offer.Price.NoOfCars = CalculateNumberOfCars(model.Offer.LivingArea, model.Offer.AuxArea);
+            model.Offer.Price.PianoCost = CalculatePianoCost(model.Offer.HasPiano);
+            model.Offer.Price.TotalCost = (model.Offer.Price.DistanceCost * model.Offer.Price.NoOfCars) + model.Offer.Price.PianoCost;
 
-            return offer;
+            return model;
         }
 
         public double CalculateDistancePrice(double distance)
@@ -93,9 +95,18 @@ namespace MoveIT.MVC.Services
             }
         }
 
-        public Offer GetOfferById(int id)
+        public OfferViewModel GetOfferById(int id)
         {
-            throw new NotImplementedException();
+            var model = new OfferViewModel();
+            model.Offer = _offerRepository.GetOfferById(id);
+            model.Client = new Client
+            {
+                Name = "Pelle Testsson",
+                Email = "pelle@test.se",
+                Phone = "012-3456789"
+            };
+
+            return model;
         }
 
         public List<Offer> GetOffers()
