@@ -14,7 +14,29 @@ namespace MoveIT.MVC.Repositories
         public Offer GetOfferById(int id)
         {
             //Get offer by ID from DB
-            return new Offer { };
+            return new Offer {
+                    Id = 1000,
+                    FromAddress = new Address
+                    {
+                        Street = "Storgatan 27",
+                        City = "Storstad"
+                    },
+                    ToAddress = new Address
+                    {
+                        Street = "Testgatan 9",
+                        City = "Testby"
+                    },
+                    Distance = 57,
+                    LivingArea = 52,
+                    AuxArea = 4,
+                    HasPiano = true,
+                    Price = new Price {
+                        DistanceCost = 5096,
+                        NoOfCars = 2,
+                        PianoCost = 5000,
+                        TotalCost = 15192
+                    }
+                };
         }
 
         public List<Offer> GetOffers()
