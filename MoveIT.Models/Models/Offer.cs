@@ -11,7 +11,7 @@ namespace MoveIT.Models.Models
         public double LivingArea { get; set; }
         public double AuxArea { get; set; }
         public bool HasPiano { get; set; }
-        public double PriceIncludingVAT { get; set; }
+        public Price Price { get; set; }
         public OfferStatus Status { get; set; }
     }
 }
