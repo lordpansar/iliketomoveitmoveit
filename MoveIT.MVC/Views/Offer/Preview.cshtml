@@ -1,0 +1,70 @@
+﻿@model OfferViewModel
+@{
+    ViewData["Title"] = "Prisförslag för bohagsflytt";
+}
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>Kontaktuppgifter</h4>
+        <p>Namn: @Model.Client.Name</p>
+        <p>E-post: @Model.Client.Email</p>
+        <p>Telefon: @Model.Client.Phone</p>
+    </div>
+    <div class="col-md-6">
+        <h4>Adresser</h4>
+        <p>Från adress: @Model.Offer.FromAddress.Street, @Model.Offer.FromAddress.City</p>
+        <p>Till adress: @Model.Offer.ToAddress.Street, @Model.Offer.ToAddress.City</p>
+        <p>Distans mellan adresser: @Model.Offer.Distance km</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h4>Övrig information </h4>
+        <p>Yta exkl. vind/källare: @Model.Offer.LivingArea m2</p>
+        <p>Yta vind/källare: @Model.Offer.AuxArea m2</p>
+        @{
+            if (Model.Offer.HasPiano)
+            {
+                <p>Pianoflytt: Ja</p>
+            }
+            else
+            {
+                <p>Pianoflytt: Nej</p>
+            }
+        }
+        <p>Packhjälp: Nej</p>
+    </div>
+    <div class="col-md-6">
+        <h4>Att betala</h4>
+        <p>Distanskostnad/bil: @Model.Offer.Price.DistanceCost SEK</p>
+        <p>Antal bilar: @Model.Offer.Price.NoOfCars</p>
+        @{
+            if (Model.Offer.HasPiano)
+            {
+                <p>Pianoflytt: 5000 SEK</p>
+            }
+        }
+        <h3>@Model.Offer.Price.TotalCost SEK</h3>
+        <p>Varav moms : @(Model.Offer.Price.TotalCost * 0.2) SEK</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <p>Observera att detta enbart är en preliminär beräkning. Om du klickar på knappen nedan så kommer du bli kontaktad av en av våra trevliga säljare med ett slutgiltigt kostnadsförslag!</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <input type="submit" name="response" value="Accept" formaction=@Url.Action("offer", "verify") formmethod="post" class="btn btn-success" />
+        <form asp-controller="Offer" asp-action="Verify" method="post">
+            <button type="button" class="btn btn-success">Kontakta mig</button>
+        </form>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <p>Frågor? Kontakta oss på <a href="mailto:flytt@moveit.se?subject=Ang offert">flytt@moveit.se</a></p>
+    </div>
+</div>
