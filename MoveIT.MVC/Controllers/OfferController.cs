@@ -34,16 +34,10 @@ namespace MoveIT.MVC.Controllers
             return View(model);
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpGet]
+        public IActionResult Details(OfferViewModel model)
         {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return View(model);
         }
     }
 }
