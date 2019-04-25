@@ -5,67 +5,107 @@
 
 <div class="row">
     <div class="col-md-12">
-        <p>Ipsasdölkjasdlfkjasldkfjalsködjflkasjdfldfjglksjdaöfkjasdlkfjasdlökfjaslökdjlökaskjdfölkasjdflökkjaslökdfjaslökjdflökaskjdflökasjdflöksjdflk</p>
+        <h2 class="text-center">MoveIT's offertgenerator</h2>
+        <p class="margin-top-20">Fyll i formuläret nedan och tryck på skicka. Du kommer därefter få ett preliminärt kostnadsförslag
+        att ta ställning till. Om du godkänner detta kostnadsförslag så kommer en av våra säljare räkna ut ditt exakta pris och 
+        kontakta dig för tidsbokning!</p>
+        <p>För att ge dig ett så rättvist pris som möjligt behöver vi på MoveIT veta distansen mellan de två adresserna som flytten skall gå.
+        Om du inte vet avståndet kan du använda <a href="https://www.google.com/maps" target="_blank">Google Maps</a>
+        för en preliminär uppskattning. Vi på MoveIT tar ut den exakta distansen när vi räknar ut den slutgiltiga offerten.</p>
     </div>
 </div>
-<div class="row">
-    @*sp-route-returnurl="@ViewData["ReturnUrl"]"*@
-    <div class="col-md-6">
-        <form asp-controller="Offer" asp-action="Index" method="post" class="form-horizontal" role="form">
+<form asp-controller="Offer" asp-action="Index" method="post" class="form-horizontal text-center w90" role="form">
+    <div class="row">
+        <div class="col-md-5">
+            <h4>Kontaktuppgifter</h4>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-5">
+            <h4>Adresser</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
             <div class="form-group">
-                <label asp-for="Client.Name">Namn:</label>
-                <input asp-for="Client.Name" type="text" class="form-control" id="name">
+                <label asp-for="Client.Name">Namn</label>
+                <input asp-for="Client.Name" type="text" class="form-control" id="name"  placeholder="Förnamn efternamn">
             </div>
             <div class="form-group">
-                <label asp-for="Client.Email">E-post:</label>
-                <input asp-for="Client.Email" type="email" class="form-control" id="email">
+                <label asp-for="Client.Email">E-post</label>
+                <input asp-for="Client.Email" type="email" class="form-control" id="email" placeholder="exempel@exempel.com">
             </div>
             <div class="form-group">
-                <label asp-for="Client.Phone">Telefon:</label>
-                <input asp-for="Client.Phone" type="text" class="form-control" id="phone">
+                <label asp-for="Client.Phone">Telefon</label>
+                <input asp-for="Client.Phone" type="text" class="form-control" id="phone" placeholder="012-3456789">
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-5">
+            <div class="form-group">
+                <label asp-for="Offer.FromAddress.Street">Från adress</label>
+                <input asp-for="Offer.FromAddress.Street" type="text" class="form-control" id="from-address" placeholder="Exempelgatan 1">
             </div>
             <div class="form-group">
-                <label asp-for="Offer.FromAddress.Street">Från adress:</label>
-                <input asp-for="Offer.FromAddress.Street" type="text" class="form-control" id="from-address">
+                <label asp-for="Offer.FromAddress.City">Från ort</label>
+                <input asp-for="Offer.FromAddress.City" type="text" class="form-control" id="from-address" placeholder="Exempelby">
             </div>
             <div class="form-group">
-                <label asp-for="Offer.FromAddress.City">Från stad:</label>
-                <input asp-for="Offer.FromAddress.City" type="text" class="form-control" id="from-address">
+                <label asp-for="Offer.ToAddress.Street">Till adress</label>
+                <input asp-for="Offer.ToAddress.Street" type="text" class="form-control" id="to-address" placeholder="Exempelvägen 7">
             </div>
             <div class="form-group">
-                <label asp-for="Offer.ToAddress.Street">Till adress:</label>
-                <input asp-for="Offer.ToAddress.Street" type="text" class="form-control" id="to-address">
+                <label asp-for="Offer.ToAddress.City">Till ort</label>
+                <input asp-for="Offer.ToAddress.City" type="text" class="form-control" id="from-address" placeholder="Exempelstad">
             </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="text-center">Övrig information</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
             <div class="form-group">
-                <label asp-for="Offer.ToAddress.City">Från stad:</label>
-                <input asp-for="Offer.ToAddress.City" type="text" class="form-control" id="from-address">
-            </div>
-            <div class="form-group">
-                <label asp-for="Offer.Distance">Avstånd i kilometer:</label>
+                <label asp-for="Offer.Distance">Avstånd i kilometer</label>
                 <input asp-for="Offer.Distance" type="text" class="form-control" id="distance">
             </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
             <div class="form-group">
-                <label asp-for="Offer.LivingArea">Yta exkl. källare/vind:</label>
+                <label asp-for="Offer.LivingArea">Yta exkl. källare/vind</label>
                 <input asp-for="Offer.LivingArea" type="text" class="form-control" id="livingArea">
             </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
             <div class="form-group">
-                <label asp-for="Offer.AuxArea">Yta källare/vind:</label>
+                <label asp-for="Offer.AuxArea">Yta källare/vind</label>
                 <input asp-for="Offer.AuxArea" type="text" class="form-control" id="auxArea">
             </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
             <div class="checkbox">
-                    <label asp-for="Offer.HasPiano">
-                        <input asp-for="Offer.HasPiano" type="checkbox" id="hasPiano"> Piano
-                    </label>
+                <label asp-for="Offer.HasPiano">
+                    <input asp-for="Offer.HasPiano" type="checkbox" id="hasPiano"> Piano skall flyttas mellan adresserna
+                </label>
             </div>
-            <button type="submit" value="Save" id="post" class="btn btn-success">Skicka</button>
-        </form>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <button type="submit" value="Save" id="post" class="btn btn-success btn-lg btn-block margin-top-20">Skicka</button>
+            </div>
+        </div>
     </div>
-    <div class="col-md-6">
-        @*<i class="fas fa-truck"></i>*@
-        @*<div class="container-fluid">
-                <div id="map">
-                    <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin=Rekordv%C3%A4gen%206%2C%20Gustavsberg%2C%20Sverige&destination=Dovregatan%202%2C%20Kista%2C%20Sverige&key=AIzaSyDLzfNEt8wsBTkoGIyY-goV4bCV7vQlcA0" allowfullscreen></iframe>
-                </div>
-            </div>*@
-    </div>
-</div>
+</form>
+@*<div class="col-md-6">
+    @*<i class="fas fa-truck"></i>*@
+@*<div class="container-fluid">
+        <div id="map">
+            <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin=Rekordv%C3%A4gen%206%2C%20Gustavsberg%2C%20Sverige&destination=Dovregatan%202%2C%20Kista%2C%20Sverige&key=AIzaSyDLzfNEt8wsBTkoGIyY-goV4bCV7vQlcA0" allowfullscreen></iframe>
+        </div>
+    </div>*@
+@*</div>*@
