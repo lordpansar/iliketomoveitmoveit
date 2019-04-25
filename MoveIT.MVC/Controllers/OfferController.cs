@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MoveIT.Models.Models;
 using MoveIT.MVC.Interfaces;
 using MoveIT.MVC.Models;
 
@@ -24,7 +23,7 @@ namespace MoveIT.MVC.Controllers
         public IActionResult Index(OfferViewModel viewModel)
         {
             var model = _offerservice.CalculateOffer(viewModel);
-            return View("Preview", model);
+            return View("Details", model);
         }
 
         [HttpGet]
@@ -36,15 +35,9 @@ namespace MoveIT.MVC.Controllers
         }
 
         [HttpGet]
-        public IActionResult Preview(OfferViewModel model)
+        public IActionResult Details(OfferViewModel model)
         {
             return View(model);
-        }
-
-        [HttpGet]
-        public IActionResult Verify()
-        {
-            return View();
         }
     }
 }
