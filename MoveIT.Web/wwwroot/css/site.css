@@ -35,3 +35,14 @@ body {
         display: none;
     }
 }
+
+.map {
+    overflow: hidden;
+    padding-bottom: 50%;
+    position: relative;
+}
+
+.map iframe{
+    height: 100%;
+    width: 100%;
+}

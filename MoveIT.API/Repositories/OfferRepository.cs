@@ -1,7 +1,6 @@
-using System;
+﻿using MoveIT.API.Interfaces;
+using MoveIT.Models.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MoveIT.API.Repositories
 {
@@ -10,6 +9,35 @@ namespace MoveIT.API.Repositories
         public OfferRepository()
         {
 
+        }
+
+        public Offer GetOfferById(int id)
+        {
+            //Get offer by ID from DB
+            return new Offer { };
+        }
+
+        public List<Offer> GetOffers()
+        {
+            //Get all offers from DB, e g for admin/sales
+            var offers = new List<Offer>();
+
+            offers.Add(new Offer
+            {
+
+            });
+
+            offers.Add(new Offer
+            {
+
+            });
+
+            offers.Add(new Offer
+            {
+
+            });
+
+            return offers;
         }
 
         public bool SaveOffer(Offer offer)

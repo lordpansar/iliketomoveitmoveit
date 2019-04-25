@@ -20,7 +20,7 @@
 </div>
 <div class="row">
     <div class="col-md-6">
-        <h4>Övrig information </h4>
+        <h4>Övrig information</h4>
         <p>Yta exkl. vind/källare: @Model.Offer.LivingArea m2</p>
         <p>Yta vind/källare: @Model.Offer.AuxArea m2</p>
         @{
@@ -56,10 +56,7 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <input type="submit" name="response" value="Accept" formaction=@Url.Action("offer", "verify") formmethod="post" class="btn btn-success" />
-        <form asp-controller="Offer" asp-action="Verify" method="post">
-            <button type="button" class="btn btn-success">Kontakta mig</button>
-        </form>
+        <input type="submit" name="response" value="Accept" onclick="window.location='@Url.Action("verify", "offer")'" formmethod="post" class="btn btn-success" />
     </div>
 </div>
 <br />
